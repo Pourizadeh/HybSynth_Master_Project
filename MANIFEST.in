@@ -1,0 +1,39 @@
+# Include all image files in the images directory
+include images/*.jpg
+include images/*.png
+
+# Include the README and other documentation files
+include README.md
+include CHANGELOG.md
+include CONTRIBUTING.md
+include LICENSE
+
+# Include the requirements file
+include requirements.txt
+
+# Include all Python source files
+include *.py
+include HybSynth/*.py
+include HybSynth/effects/*.py
+
+# Recursively include all files in the HybSynth directory
+recursive-include HybSynth *
+
+# Exclude any unnecessary files (e.g., cache files, logs, etc.)
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude *.so
+global-exclude *.dll
+global-exclude *.log
+global-exclude *.bak
+global-exclude *.swp
+global-exclude *.tmp
+global-exclude *.cache
+global-exclude *.egg-info
+global-exclude .DS_Store
+global-exclude .git
+global-exclude .gitignore
+global-exclude .vscode
+global-exclude __pycache__
+
