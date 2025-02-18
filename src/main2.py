@@ -1,3 +1,12 @@
+#-------------------------------------------------------------------------------
+# Name:        main.py
+# Purpose:     Project's main code file
+# Author:      Zahra Pourizadeh
+# Created:     01/01/2025
+# Copyright:   (c) Zahra Pourizadeh 2025
+# Licence:     MIT
+#-------------------------------------------------------------------------------
+
 import time
 import numpy as np
 from waveform import SineWave, SquareWave, TriangleWave, SawtoothWave

@@ -1,3 +1,12 @@
+#-------------------------------------------------------------------------------
+# Name:        waveform.py
+# Purpose:     Generate and play audio waves.
+# Author:      Zahra Pourizadeh
+# Created:     01/01/2025
+# Copyright:   (c) Zahra Pourizadeh 2025
+# Licence:     MIT
+#-------------------------------------------------------------------------------
+
 import numpy as np
 import sounddevice as sd
 

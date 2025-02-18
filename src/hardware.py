@@ -1,9 +1,15 @@
+#-------------------------------------------------------------------------------
+# Name:        hardware.py
+# Purpose:     Initialize MCP3008 channels for frequency, amplitude,
+#              delay feedback, delay time, tremolo depth & tremolo rate
+# Author:      Zahra Pourizadeh
+# Created:     01/01/2025
+# Copyright:   (c) Zahra Pourizadeh 2025
+# Licence:     MIT
+#-------------------------------------------------------------------------------
+
 from gpiozero import MCP3008, Button
 
-# ----------------------------------------------------------
-# Initialize MCP3008 channels for frequency, amplitude,
-# delay feedback, delay time, tremolo depth & tremolo rate
-# ----------------------------------------------------------
 class Pots:
     pot_volume = MCP3008(channel=0)
     pot_frequency = MCP3008(channel=1)
