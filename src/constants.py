@@ -1,10 +1,8 @@
 #-------------------------------------------------------------------------------
 # Name:        constants.py
-# Purpose:     Project constant values
+# Purpose:     Project's constants values
 # Author:      Zahra Pourizadeh
 # Created:     01/01/2025
-# Copyright:   (c) Zahra Pourizadeh 2025
-# Licence:     MIT
 #-------------------------------------------------------------------------------
 
 samplerate = 44100

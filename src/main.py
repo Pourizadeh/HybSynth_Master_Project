@@ -14,6 +14,7 @@ import time
 from waveform import SineWave, SquareWave, TriangleWave, SawtoothWave
 from effects import Tremolo, Vibrato, Delay
 from hardware import Pots, Buttons
+from constants import *
 
 samplerate = 44100
 duration = 0.1 # Duration of each audio block (in seconds)
