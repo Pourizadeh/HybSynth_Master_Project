@@ -1,40 +1,43 @@
 
------------------------------------------------------------------------
-Version 1.2.0 (Performance Improvements)
-Date:
-Improvements:
+---
+## Version 1.2.0 (Performance Improvements)
+### Date:
+**New Features:**
 
 Added support for additional waveforms (e.g., Pulse, Noise).
 Improved user interface for real-time monitoring.
 Enhanced distortion effect with adjustable drive and tone controls.
-Bug Fixes:
 
+**Bug Fixes:**
 Fixed issue with waveform generation causing audio artifacts.
 Resolved delay effect buffer overflow problem.
 Corrected potentiometer mapping for smoother parameter adjustments.
 
+**Improvements:**
 Optimized Python code for better performance on Raspberry Pi.
 Reduced latency in audio processing.
 Added support for MIDI input for external control.
-New Features:
 
+**New Features:**
 Implemented a preset system for saving and loading synthesizer settings.
 Added a built-in tuner for frequency calibration.
 
------------------------------------------------------------------------
-Version 1.3.0 (Expanded Effects & Modularity)
-Date: [Insert Release Date]
-New Features:
+---
+## Version 1.2.0 (Performance Improvements)
+### Date:
 
+**Improvements:**
+Enhanced mixer module with additional channels and EQ controls.
+Improved LFO module with more waveform options and sync capabilities.
+
+**New Features:**
 Added new audio effects: Chorus, Reverb, and Phaser.
 Modular design for easy addition of new modules and effects.
 Support for external hardware modules via GPIO expansion.
-Improvements:
-
-Enhanced mixer module with additional channels and EQ controls.
-Improved LFO module with more waveform options and sync capabilities.
+---
 Version 1.4.0 (User Interface Overhaul)
 Date: [Insert Release Date]
+
 New Features:
 
 Graphical user interface (GUI) using Tkinter for easier control and visualization.
