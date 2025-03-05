@@ -11,7 +11,7 @@ authors = [
 ]
 readme = "README.md"
 license = { file = "LICENSE" }
-requires-python = ">=3.7"
+requires-python = ">=3.7, <=3.11"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -23,8 +23,6 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
     "Operating System :: POSIX :: Linux",
     "Topic :: Multimedia :: Sound/Audio :: Synthesis",
     "Topic :: Software Development :: Libraries :: Python Modules",
@@ -32,7 +30,7 @@ classifiers = [
 keywords = ["audio", "synthesizer", "raspberry-pi", "hybrid", "python"]
 dependencies = [
     "numpy",
-    "sounddevice",
+    "pyo",
     "gpiozero",
 ]
 

@@ -1,2 +1,0 @@
-- The middle pins of the pots will be attached to one of the input pins of the ADC IC (MCP3008).
-- in LFO the pots will be attached to the input pins of the ADC IC as well.
