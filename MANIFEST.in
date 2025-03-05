@@ -7,6 +7,7 @@ include README.md
 include CHANGELOG.md
 include CONTRIBUTING.md
 include LICENSE
+include ROADMAP.md
 
 # Include the requirements file
 include requirements.txt
@@ -14,15 +15,12 @@ include requirements.txt
 # Include all Python source files
 include *.py
 include HybSynth/*.py
-include HybSynth/effects/*.py
+include HybSynth/audio_effects/*.py
 
 # Recursively include all files in the HybSynth directory
 recursive-include HybSynth *
 
 # Exclude any unnecessary files (e.g., cache files, logs, etc.)
-global-exclude *.pyc
-global-exclude *.pyo
-global-exclude *.pyd
 global-exclude *.so
 global-exclude *.dll
 global-exclude *.log
