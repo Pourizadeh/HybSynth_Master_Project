@@ -2,7 +2,7 @@
 # Name:        main.py
 # Purpose:     Project's main code file
 # Author:      Zahra Pourizadeh
-# Created:     01/01/2025
+# Created:     2025
 # Copyright:   (c) Zahra Pourizadeh 2025
 # Licence:     MIT
 #-------------------------------------------------------------------------------
@@ -20,27 +20,24 @@ def main():
     s.start()
 
     # Hardware setup
-    power_switch = Button(17, pull_up=False, bounce_time=0.1)  # GPIO17 for main power
     mcp = MCP3008Handler()
 
     # Effect switches (GPIO pins)
-    tremolo_switch = Button(18, pull_up=False, bounce_time=0.1)  # GPIO18
-    vibrato_switch = Button(19, pull_up=False, bounce_time=0.1)  # GPIO19
-    delay_switch = Button(20, pull_up=False, bounce_time=0.1)    # GPIO20
-    distortion_switch = Button(21, pull_up=False, bounce_time=0.1)  # GPIO21
+    tremolo_switch = Button(17, pull_up=True, bounce_time=0.1)  # GPIO18
+    vibrato_switch = Button(18, pull_up=True, bounce_time=0.1)  # GPIO19
+    delay_switch = Button(19, pull_up=True, bounce_time=0.1)    # GPIO20
 
     # 4-way waveform selector (GPIO pins)
-    sine_switch = Button(22, pull_up=False, bounce_time=0.1)      # GPIO22
-    square_switch = Button(23, pull_up=False, bounce_time=0.1)    # GPIO23
-    triangle_switch = Button(24, pull_up=False, bounce_time=0.1)  # GPIO24
-    sawtooth_switch = Button(25, pull_up=False, bounce_time=0.1)  # GPIO25
+    sine_switch = Button(20, pull_up=False, bounce_time=0.1)      # GPIO22
+    square_switch = Button(21, pull_up=False, bounce_time=0.1)    # GPIO23
+    triangle_switch = Button(22, pull_up=False, bounce_time=0.1)  # GPIO24
+    sawtooth_switch = Button(23, pull_up=False, bounce_time=0.1)  # GPIO25
 
     # Waveform and effects
     osc = WaveformGenerator()
     tremolo = Tremolo()
     vibrato = Vibrato()
     delay = Delay()
-    distortion = Distortion()
 
     # Audio chain
     signal = osc.get_output()
@@ -88,13 +85,6 @@ def main():
                     processed = delay.process(processed)
                 else:
                     processed = delay.bypass()
-
-                if distortion_switch.is_pressed:
-                    # Distortion pots are hardware-controlled; no MCP3008 input
-                    distortion.update_parameters(0.5, 0.5)  # Placeholder values
-                    processed = distortion.process(processed)  # Hardware handles this
-                else:
-                    processed = distortion.bypass()
 
                 # Output to speakers (and hardware distortion if enabled)
                 processed.out()
