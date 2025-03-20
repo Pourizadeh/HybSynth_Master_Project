@@ -1,12 +1,12 @@
 # HybSynth Changelog
 
-**Initial Release**
+**Initial Release:**
 
 **Version:** 0.1.0
 
 **Date:** 2025-01-01
 
-### Highlights:
+## Highlights
 
 Initial release of HybSynth, a hybrid audio synthesizer combining digital and analog components.
 Core functionality implemented in Python on Raspberry Pi.

@@ -5,7 +5,7 @@
 
 ## Introduction
 
-<img src="docs/images/hybsynth.jpg" alt="HybSynth Logo" width="800"/>
+<img src="docs/images/hybsynth.png" alt="HybSynth Logo" width="800"/>
 
 **HybSynth** is a simple Raspberry-Pi audio synthesizer with various modules and audio effects written in Python.
 Most of the synthesizers made by enthusiasts or audio companies are completely analog or completely digital or software-based. But I decided to take a different approach to make a hybrid synthesizer. Although the main core of this project is written in Python and implemented on Raspberry-Pi development board, I've made the **distortion** audio effect completely analog, using op-amps and passive electronic components. You can change the parameters of the synthesizer and the distortion effect using knobs and buttons on the HybSynth.

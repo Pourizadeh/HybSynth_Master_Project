@@ -14,8 +14,8 @@ include requirements.txt
 
 # Include all Python source files
 include *.py
-include HybSynth/*.py
-include HybSynth/audio_effects/*.py
+include HybSynth_Master_Project/*.py
+include HybSynth_Master_Project/audio_effects/*.py
 
 # Recursively include all files in the HybSynth directory
 recursive-include HybSynth *
