@@ -4,7 +4,7 @@
 # Author:      Zahra Pourizadeh
 # Created:     2025
 # Copyright:   (c) Zahra Pourizadeh 2025
-# Licence:     MIT
+# License:     MIT
 #-------------------------------------------------------------------------------
 
 from pyo import Server
@@ -18,6 +18,13 @@ def main():
     # Initialize Pyo audio server
     
     s = Server().boot()
+    
+    # The s = Server().boot() command works, but if your speakers 
+    # or distortion circuit aren’t picking up the sound, you might
+    # need to specify the output device. For example:
+    
+    # s = Server(audio='alsa', duplex=0).boot()
+    
     s.start()
     # Hardware setup
     mcp = MCP3008Handler()

@@ -4,7 +4,7 @@
 # Author:      Zahra Pourizadeh
 # Created:     01/01/2025
 # Copyright:   (c) Zahra Pourizadeh 2025
-# Licence:     MIT
+# License:     MIT
 #-------------------------------------------------------------------------------
 
 from pyo import Sine, Square, TriTable, SawTable
