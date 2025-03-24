@@ -7,6 +7,11 @@
 # License:     MIT
 #-------------------------------------------------------------------------------
 
+SAMPLE_RATE = 44100
+CHANNELS = 2
+BUFFER_SIZE = 256
+DUPLEX = 0
+
 from pyo import Server
 from gpiozero import Button
 import time
@@ -17,26 +22,30 @@ from .audio_effects import Delay, Tremolo, Vibrato
 def main():
     # Initialize Pyo audio server
     
-    s = Server().boot()
+    # TODO: .boot()
+    s = Server(sr=SAMPLE_RATE, nchnls=CHANNELS, buffersize=BUFFER_SIZE, duplex=DUPLEX).boot()
+    # add '''audio='alsa''' to the Server if needed
     
-    # The s = Server().boot() command works, but if your speakers 
-    # or distortion circuit aren’t picking up the sound, you might
-    # need to specify the output device. For example:
-    
-    # s = Server(audio='alsa', duplex=0).boot()
+    # if there are no MIDI input or`` output attached to the project
+    # (Like HybSynth v 0.1.0) omit next two lines:
+    s.setMidiInputDevice(999)  # disable MIDI input
+    s.setMidiOutputDevice(999) # # disable MIDI input
     
     s.start()
+    
     # Hardware setup
     mcp = MCP3008Handler()
     # Effect switches
     tremolo_switch = Button(17, pull_down=True, bounce_time=0.1)  # GPIO17
     vibrato_switch = Button(18, pull_down=True, bounce_time=0.1)  # GPIO18
     delay_switch = Button(19, pull_down=True, bounce_time=0.1)    # GPIO19
+    
     # 4-way waveform selector
     sine_switch = Button(20, pull_down=True, bounce_time=0.1)     # GPIO20
     square_switch = Button(21, pull_down=True, bounce_time=0.1)   # GPIO21
     triangle_switch = Button(22, pull_down=True, bounce_time=0.1) # GPIO22
     sawtooth_switch = Button(23, pull_down=True, bounce_time=0.1) # GPIO23
+    
     # Waveform and effects
     osc = WaveformGenerator()
     tremolo = Tremolo()
