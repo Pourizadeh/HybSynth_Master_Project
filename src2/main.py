@@ -7,17 +7,27 @@
 # License:     MIT
 #-------------------------------------------------------------------------------
 
-SAMPLE_RATE = 44100
-CHANNELS = 2
-BUFFER_SIZE = 256
-DUPLEX = 0
-
-from pyo import Server, Interp
+from pyo import Server
 from gpiozero import Button
 import time
 from .mcp3008_handler import MCP3008Handler
 from .waveform import WaveformGenerator
 from .audio_effects import Tremolo, Vibrato, Delayed
+
+# ----- Audio Output Characteristics assignments -----
+SAMPLE_RATE = 44100
+CHANNELS = 2
+BUFFER_SIZE = 256
+DUPLEX = 0
+
+# ----- GPIO pin assignments -----
+TREMOLO_SWITCH_PIN = 17
+VIBRATO_SWITCH_PIN = 18
+DELAY_SWITCH_PIN = 19
+SINE_PIN = 20
+SQUARE_PIN = 21
+TRIANGLE_PIN = 22
+SAWTOOTH_PIN = 23
 
 
 def main():
@@ -31,8 +41,22 @@ def main():
     
     s.start()
 
-    # Hardware setup
+    # ---   HARDWARE SETUP   ---
+    # ---   INITIALIZE SWITCHES   ---
+
     mcp = MCP3008Handler()
+    
+    # Effect toggle switches
+    tremolo_switch = Button(17, pull_down=True, bounce_time=0.1)  # GPIO17
+    vibrato_switch = Button(18, pull_down=True, bounce_time=0.1)  # GPIO18
+    delay_switch = Button(19, pull_down=True, bounce_time=0.1)    # GPIO19
+
+    # 4-way waveform selector switches
+    sine_switch = Button(20, pull_down=True, bounce_time=0.1)     # GPIO20
+    square_switch = Button(21, pull_down=True, bounce_time=0.1)   # GPIO21
+    triangle_switch = Button(22, pull_down=True, bounce_time=0.1) # GPIO22
+    sawtooth_switch = Button(23, pull_down=True, bounce_time=0.1) # GPIO23
+    
     osc = WaveformGenerator()
     tremolo = Tremolo()
     vibrato = Vibrato()

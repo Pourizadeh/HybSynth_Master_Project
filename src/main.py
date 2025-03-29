@@ -22,7 +22,6 @@ from .audio_effects import Delay, Tremolo, Vibrato
 def main():
     # Initialize Pyo audio server
     
-    # TODO: .boot()
     s = Server(sr=SAMPLE_RATE, nchnls=CHANNELS, buffersize=BUFFER_SIZE, duplex=DUPLEX).boot()
     # add '''audio='alsa''' to the Server if needed
     

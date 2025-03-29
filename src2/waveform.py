@@ -7,7 +7,7 @@
 # License:     MIT
 #-------------------------------------------------------------------------------
 
-from pyo import Sine, Osc, TriTable, SawTable, SquareTable
+from pyo import Sine, Osc, TriangleTable, SawTable, SquareTable
 
 class WaveformGenerator:
     def __init__(self, freq=440, mul=0.5):
@@ -17,7 +17,7 @@ class WaveformGenerator:
         self.osc = Sine(freq=self.freq, mul=self.mul)
         
         # Precompute tables for waveforms
-        self.tri_table = TriTable()
+        self.tri_table = TriangleTable()
         self.saw_table = SawTable()
         self.square_table = SquareTable()
 
