@@ -29,7 +29,6 @@ classifiers = [
 ]
 keywords = ["audio", "synthesizer", "raspberry-pi", "hybrid", "python"]
 dependencies = [
-    "numpy",
     "pyo",
     "gpiozero",
 ]
