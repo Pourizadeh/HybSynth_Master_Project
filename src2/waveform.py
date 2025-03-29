@@ -7,10 +7,13 @@
 # License:     MIT
 #-------------------------------------------------------------------------------
 
-from pyo import Sine, Osc, TriangleTable, SawTable, SquareTable
+from pyo import Sine, SquareTable, TriangleTable, SawTable, Osc
+
+INITIAL_FREQUENCY = 440
+INITIAL_AMLITUDE = 0.5
 
 class WaveformGenerator:
-    def __init__(self, freq=440, mul=0.5):
+    def __init__(self, freq=INITIAL_FREQUENCY, mul=INITIAL_AMLITUDE):
         self.freq = freq
         self.mul = mul
         self.wave_type = 'sine'

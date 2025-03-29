@@ -7,6 +7,27 @@
 # Licence:     MIT
 #-------------------------------------------------------------------------------
 
+AMPLITUDE_MIN = 0 # The Amplitude knob when Turns down completely
+AMPLITUDE_MAX = 1 # The Amplitude knob when Turns down completely
+
+FREQUENCY_MIN = 100 # The Frequency knob when Turns down completely
+FREQUENCY_MAX = 4000 # The Frequency knob when Turn up completely
+
+TREMOLO_DEPTH_MIN = 0
+TREMOLO_DEPTH_MAX = 0.5
+TREMOLO_RATE_MIN = 1
+TREMOLO_RATE_MAX = 20
+
+VIBRATO_DEPTH_MIN = 0
+VIBRATO_DEPTH_MAX = 0.5
+VIBRATO_RATE_MIN = 1
+VIBRATO_RATE_MAX = 20
+
+DELAY_TIME_MIN = 0.01
+DELAY_TIME_MAX = 0.5
+DELAY_FEEDBACK_MIN = 0
+DELAY_FEEDBACK_MAX = 0.9
+
 from gpiozero import MCP3008
 
 class MCP3008Handler:
@@ -27,22 +48,22 @@ class MCP3008Handler:
         return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
     def get_amplitude(self):
-        return self.map_value(self.mcp['amp'].value, 0, 1, 0, 1)
+        return self.map_value(self.mcp['amp'].value, 0, 1, AMPLITUDE_MIN, AMPLITUDE_MAX)
 
     def get_frequency(self):
-        return self.map_value(self.mcp['freq'].value, 0, 1, 100, 10000)
+        return self.map_value(self.mcp['freq'].value, 0, 1, FREQUENCY_MIN, FREQUENCY_MAX)
 
     def get_tremolo_params(self):
-        depth = self.map_value(self.mcp['trem_depth'].value, 0, 1, 0, 0.5)
-        rate = self.map_value(self.mcp['trem_rate'].value, 0, 1, 1, 20)
+        depth = self.map_value(self.mcp['trem_depth'].value, 0, 1, TREMOLO_DEPTH_MIN, TREMOLO_DEPTH_MAX)
+        rate = self.map_value(self.mcp['trem_rate'].value, 0, 1, TREMOLO_RATE_MIN, TREMOLO_RATE_MAX)
         return depth, rate
 
     def get_vibrato_params(self):
-        depth = self.map_value(self.mcp['vib_depth'].value, 0, 1, 0, 0.5)
-        rate = self.map_value(self.mcp['vib_rate'].value, 0, 1, 1, 20)
+        depth = self.map_value(self.mcp['vib_depth'].value, 0, 1, VIBRATO_DEPTH_MIN, VIBRATO_DEPTH_MAX)
+        rate = self.map_value(self.mcp['vib_rate'].value, 0, 1, VIBRATO_RATE_MIN, VIBRATO_RATE_MAX)
         return depth, rate
 
     def get_delay_params(self):
-        time = self.map_value(self.mcp['delay_time'].value, 0, 1, 0.01, 0.5)
-        fb = self.map_value(self.mcp['delay_fb'].value, 0, 1, 0, 0.9)
+        time = self.map_value(self.mcp['delay_time'].value, 0, 1, DELAY_TIME_MIN, DELAY_TIME_MAX)
+        fb = self.map_value(self.mcp['delay_fb'].value, 0, 1, DELAY_FEEDBACK_MIN, DELAY_FEEDBACK_MAX)
         return time, fb

@@ -29,6 +29,8 @@ SQUARE_PIN = 21
 TRIANGLE_PIN = 22
 SAWTOOTH_PIN = 23
 
+BOUNCE_TIME = 0.1
+
 
 def main():
     s = Server(sr=SAMPLE_RATE, nchnls=CHANNELS, buffersize=BUFFER_SIZE, duplex=DUPLEX).boot()
@@ -47,15 +49,15 @@ def main():
     mcp = MCP3008Handler()
     
     # Effect toggle switches
-    tremolo_switch = Button(17, pull_down=True, bounce_time=0.1)  # GPIO17
-    vibrato_switch = Button(18, pull_down=True, bounce_time=0.1)  # GPIO18
-    delay_switch = Button(19, pull_down=True, bounce_time=0.1)    # GPIO19
+    tremolo_switch = Button(TREMOLO_SWITCH_PIN, pull_down = True, bounce_time = BOUNCE_TIME)  # GPIO17
+    vibrato_switch = Button(VIBRATO_SWITCH_PIN, pull_down = True, bounce_time = BOUNCE_TIME)  # GPIO18
+    delay_switch = Button(DELAY_SWITCH_PIN, pull_down = True, bounce_time = BOUNCE_TIME)    # GPIO19
 
     # 4-way waveform selector switches
-    sine_switch = Button(20, pull_down=True, bounce_time=0.1)     # GPIO20
-    square_switch = Button(21, pull_down=True, bounce_time=0.1)   # GPIO21
-    triangle_switch = Button(22, pull_down=True, bounce_time=0.1) # GPIO22
-    sawtooth_switch = Button(23, pull_down=True, bounce_time=0.1) # GPIO23
+    sine_switch = Button(SINE_PIN, pull_down = True, bounce_time = BOUNCE_TIME)     # GPIO20
+    square_switch = Button(SQUARE_PIN, pull_down = True, bounce_time = BOUNCE_TIME)   # GPIO21
+    triangle_switch = Button(TRIANGLE_PIN, pull_down = True, bounce_time = BOUNCE_TIME) # GPIO22
+    sawtooth_switch = Button(SAWTOOTH_PIN, pull_down = True, bounce_time = BOUNCE_TIME) # GPIO23
     
     osc = WaveformGenerator()
     tremolo = Tremolo()
