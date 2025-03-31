@@ -6,14 +6,12 @@
 # Copyright:   (c) Zahra Pourizadeh 2025
 # License:     MIT
 #-------------------------------------------------------------------------------
-
-from pyo import Sine, Mix
+from pyo import Sine
 
 class Tremolo:
     def __init__(self, depth=0.5, rate=5):
         self.lfo = Sine(freq=rate, mul=depth, add=1-depth)
-        self.tremolo = None
-        self.input = None  # Store input signal
+        self.input_signal = None  # Store the input for bypass
 
     def update_parameters(self, depth, rate):
         self.lfo.freq = rate
@@ -21,9 +19,8 @@ class Tremolo:
         self.lfo.add = 1 - depth
 
     def process(self, input_signal):
-        self.input = input_signal  # Save input for bypass
-        self.tremolo = input_signal * self.lfo
-        return self.tremolo
+        self.input_signal = input_signal
+        return input_signal * self.lfo
 
     def bypass(self):
-        return self.input  # Return original input, not processed signal
+        return self.input_signal  # Return the original signal
